@@ -1,0 +1,14 @@
+#This file must be placed in /etc/systemd/system
+#the cervice is started by systemctl start alive_service 
+
+[Unit]
+Description = uploading alive information
+After = network.target
+
+[Service]
+Restart=on-failure
+RestartSec=5s
+ExecStart = /opt/door_operator/w_alive_service_script.sh 
+
+[Install]
+WantedBy = multi-user.target
